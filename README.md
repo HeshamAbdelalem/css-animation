@@ -1,1 +1,1 @@
-## JavaScript For Beginners By Mosh Hamedani
+## CSS Animations
