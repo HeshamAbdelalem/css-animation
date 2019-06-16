@@ -42,7 +42,6 @@
         transform: rotate(45deg);
         z-index: -1;
       }
-
       .container {
         margin: 0 auto;
         width: 75%;
@@ -50,26 +49,34 @@
         justify-content: center;
         align-items: center;
       }
-      .trigger {
-        background-color: #ddd;
-        box-sizing: content-box;
-        border: 10px solid #242424af;
-        width: 100px;
-        height: 100px;
-        margin: 20px;
-      }
 
       .box {
         background-color: pink;
         width: 100px;
         height: 100px;
-        /* margin: 20px; */
-        transition: transform 300ms ease-in-out;
-        pointer-events: none;
+        /* animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state] */
+        animation: move 2s ease-in-out 0s infinite;
+        /* 
+        animation-name: move;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-delay: 0s;
+        animation-iteration-count: infinite; */
+        animation-direction: alternate;
       }
 
-      .trigger:hover .box {
-        transform: translate(50px, 100px) rotate(20deg);
+      .is-paused {
+        animation-play-state: paused;
+      }
+
+      @keyframes move {
+        0% {
+          height: 100px;
+        }
+        100% {
+          height: 500px;
+          background-color: #ff8fa1;
+        }
       }
     </style>
   </head>
@@ -80,9 +87,14 @@
       <!-- <h3>Using hover effect approach</h3> -->
     </header>
     <div class="container">
-      <div class="trigger">
-        <div class="box"></div>
-      </div>
+      <div class="box"></div>
     </div>
+
+    <script>
+      let box = document.querySelector('.box');
+      box.addEventListener('click', function() {
+        this.classList.toggle('is-paused');
+      });
+    </script>
   </body>
 </html>
