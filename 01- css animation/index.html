@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>01.CSS Transition (CSS Animations Series Part 1)</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        color: rgba(0, 0, 0, 0.7);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffebcd;
+      }
+      .head-box {
+        color: #fff;
+        background-color: #272727;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        /* z-index: 2; */
+        margin-bottom: 75px;
+        text-align: center;
+        text-shadow: 0 0 4px #ffebcdc7;
+        flex-direction: column;
+      }
+      .head-box::before {
+        content: '';
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: #272727;
+        bottom: -25px;
+        transform: rotate(45deg);
+        z-index: -1;
+      }
+
+      .container {
+        margin: 0 auto;
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .trigger {
+        background-color: #ddd;
+        box-sizing: content-box;
+        border: 10px solid #242424af;
+        width: 100px;
+        height: 100px;
+        margin: 20px;
+      }
+
+      .box {
+        background-color: pink;
+        width: 100px;
+        height: 100px;
+        /* margin: 20px; */
+        transition: transform 300ms ease-in-out;
+        pointer-events: none;
+      }
+
+      .trigger:hover .box {
+        transform: translate(50px, 100px) rotate(20deg);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="head-box">
+      <h1>CSS Transition (CSS Animations Series Part 1)</h1>
+      <h3>Using hover effect approch</h3>
+    </header>
+    <div class="container">
+      <div class="trigger">
+        <div class="box"></div>
+      </div>
+    </div>
+  </body>
+</html>
