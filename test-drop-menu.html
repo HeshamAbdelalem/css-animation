@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>04- Drop Down Menu</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        color: rgba(0, 0, 0, 0.7);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffebcd;
+      }
+      .head-box {
+        color: #fff;
+        background-color: #272727;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        /* z-index: 2; */
+        margin-bottom: 75px;
+        text-align: center;
+        text-shadow: 0 0 4px #ffebcdc7;
+        flex-direction: column;
+      }
+      .head-box::before {
+        content: '';
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: #272727;
+        bottom: -25px;
+        transform: rotate(45deg);
+        z-index: -1;
+      }
+      .container {
+        width: 80%;
+        min-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .main-menu,
+      .main-menu .menu {
+        list-style: none;
+      }
+
+      .menu-div .main-menu {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 2px solid yellow; */
+        text-align: center;
+        line-height: 4rem;
+        background-color: #272727;
+        color: #fff;
+        transition: all 0.5s ease-in;
+        border-radius: 5px 5px 0 0;
+      }
+
+      .menu-div .main-menu > li {
+        width: 140px;
+        height: 4rem;
+        font-family: Consolas;
+        background-color: #242424;
+        color: #fff;
+      }
+
+      .main-menu .menu li {
+        display: none;
+        padding: 10px 30px;
+      }
+
+      li:hover > ul.menu > li {
+        display: block;
+        background-color: #242424;
+        color: #fff;
+        overflow: hidden;
+      }
+
+      /* ! Menu 1 */
+      li:hover > ul.menu.menu1 {
+        perspective: 1000px;
+      }
+
+      li:hover > ul.menu.menu1 > li {
+        opacity: 0;
+        animation: opacity 0.5s ease-in-out;
+        animation-fill-mode: forwards;
+      }
+
+      li:hover > ul.menu.menu1 > li:hover {
+        opacity: 0.5;
+      }
+
+      @keyframes opacity {
+        from {
+          opacity: 0;
+          transform: rotateY(-90deg) translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: rotateY(0deg) translateY(0px);
+        }
+      }
+
+      /* ! Menu 2 */
+      li:hover > ul.menu.menu2 {
+        perspective: 1000px;
+      }
+
+      li:hover > ul.menu.menu2 > li {
+        /* opacity: 0; */
+        animation: menu2 0.5s ease-in-out;
+      }
+
+      li:hover > ul.menu.menu2 > li:hover {
+        opacity: 0.9;
+      }
+
+      @keyframes menu2 {
+        0% {
+          transform: rotateX(-90deg);
+        }
+        30% {
+          transform: rotateX(40deg);
+        }
+        100% {
+          transform: rotateX(0deg);
+        }
+      }
+
+      /* ! Menu 3 */
+      li:hover > ul.menu.menu3 {
+        perspective: 1000px;
+      }
+
+      li:hover > ul.menu.menu3 > li {
+        /* opacity: 0; */
+        animation: menu3 0.5s ease-in-out;
+      }
+
+      li:hover > ul.menu.menu3 > li:hover {
+        opacity: 0.9;
+      }
+
+      @keyframes menu3 {
+        0% {
+          opacity: 0;
+          transform: scale(0.3) translateY(-60px);
+        }
+
+        100% {
+          opacity: 1;
+
+          transform: scale(1) translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="head-box">
+      <h1>Drop Down Menu</h1>
+    </header>
+
+    <div class="container">
+      <div class="trigger">
+        <div class="menu-div">
+          <ul class="main-menu">
+            <li>
+              list1 ⮟
+              <ul class="menu menu1">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ul>
+            </li>
+            <li>
+              list2 ⮟
+              <ul class="menu menu2">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ul>
+            </li>
+            <li>
+              list3 ⮟
+              <ul class="menu menu3">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ul>
+            </li>
+            <li>
+              list4 ⮟
+              <ul class="menu menu4">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ul>
+            </li>
+            <li>
+              list5 ⮟
+              <ul class="menu menu5">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ul>
+            </li>
+            <li>
+              list6 ⮟
+              <ul class="menu menu6">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

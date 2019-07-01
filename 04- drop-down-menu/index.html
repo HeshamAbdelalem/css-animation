@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>04- Drop Down Menu</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        color: rgba(0, 0, 0, 0.7);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffebcd;
+      }
+      .head-box {
+        color: #fff;
+        background-color: #272727;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        /* z-index: 2; */
+        margin-bottom: 75px;
+        text-align: center;
+        text-shadow: 0 0 4px #ffebcdc7;
+        flex-direction: column;
+      }
+      .head-box::before {
+        content: '';
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: #272727;
+        bottom: -25px;
+        transform: rotate(45deg);
+        z-index: -1;
+      }
+
+      .container {
+        margin: 0 auto;
+        width: 75%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .main-menu {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 2px solid yellow; */
+        text-align: center;
+        line-height: 64px;
+        background-color: #272727;
+        color: #fff;
+        transition: all 0.5s ease-in;
+        border-radius: 5px 5px 0 0;
+      }
+      .main-menu > li {
+        width: 140px;
+        height: 64px;
+        /* border: 1px solid green; */
+      }
+
+      ul.drop-menu li {
+        display: none;
+      }
+
+      li:hover > ul.drop-menu li {
+        display: block;
+        background-color: #272727;
+        color: #fff;
+        /* opacity: 0; */
+        animation: showMenu 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+
+      li:hover > ul.drop-menu li:hover {
+        background-color: #20000091;
+      }
+
+      ul.drop-menu li:last-of-type {
+        border-radius: 0 0 5px 5px;
+      }
+
+      @keyframes showMenu {
+        0% {
+          opacity: 0;
+          transform: rotateY(-90deg);
+        }
+        100% {
+          opacity: 1;
+          transform: rotateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="head-box">
+      <h1>Drop Down Menu</h1>
+    </header>
+    <div class="container">
+      <div class="trigger">
+        <div class="box">
+          <ul class="main-menu">
+            <li>
+              list 1
+              <ul class="drop-menu menu1">
+                <li>1aaaaaaaaaaaaaaaaaaaaaaaaaa</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ul>
+            </li>
+            <li>
+              list 2
+              <ul class="drop-menu menu2">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ul>
+            </li>
+            <li>
+              list 3
+              <ul class="drop-menu menu3">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ul>
+            </li>
+            <li>
+              list 4
+              <ul class="drop-menu menu4">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
