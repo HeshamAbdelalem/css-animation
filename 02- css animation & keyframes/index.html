@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>01.CSS Transition (CSS Animations Series Part 1)</title>
+    <title>02.CSS Animation & Keyframes (CSS Animations Series Part 2)</title>
     <style>
       *,
       *::after,
@@ -42,7 +42,6 @@
         transform: rotate(45deg);
         z-index: -1;
       }
-
       .container {
         margin: 0 auto;
         width: 75%;
@@ -51,44 +50,50 @@
         align-items: center;
       }
 
-      .trigger {
-        background-color: #ddd;
-        box-sizing: content-box;
-        border: 10px solid #242424af;
-        width: 100px;
-        height: 100px;
-        margin: 20px;
-      }
-
       .box {
         background-color: pink;
         width: 100px;
         height: 100px;
-        /* margin: 20px; */
-        transition: transform 1000ms ease-in-out;
-        pointer-events: none;
+        /* animation: [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state] */
+        animation: move 2s ease-in-out 0s infinite;
+        /* 
+        animation-name: move;
+        animation-duration: 2s;
+        animation-timing-function: ease-in-out;
+        animation-delay: 0s;
+        animation-iteration-count: infinite; */
+        animation-direction: alternate;
       }
 
-      .trigger.clicked .box {
-        transform: rotate(180deg);
+      .is-paused {
+        animation-play-state: paused;
+      }
+
+      @keyframes move {
+        0% {
+          height: 100px;
+        }
+        100% {
+          height: 500px;
+          background-color: #ff8fa1;
+        }
       }
     </style>
   </head>
 
   <body>
     <header class="head-box">
-      <h1>CSS Transition (CSS Animations Series Part 1)</h1>
-      <h3>Using toggle class effect approach</h3>
+      <h1>CSS Animation & Keyframes (CSS Animations Series Part 2)</h1>
+      <!-- <h3>Using hover effect approach</h3> -->
     </header>
     <div class="container">
-      <div class="trigger">
-        <div class="box"></div>
-      </div>
+      <div class="box"></div>
     </div>
+
     <script>
-      let trigger = document.querySelector('.trigger');
-      trigger.addEventListener('click', function() {
-        this.classList.toggle('clicked');
+      let box = document.querySelector('.box');
+      box.addEventListener('click', function() {
+        this.classList.toggle('is-paused');
       });
     </script>
   </body>
